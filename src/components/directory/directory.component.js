@@ -16,7 +16,7 @@ class Directory extends React.Component {
           title: 'hats',
           imageUrl: 'https://i.ibb.co/cvpntL1/hats.png',
           id: 1,
-          linkUrl: 'shop/hats'
+          linkUrl: 'shop/hats',
         },
         {
           title: 'jackets',
@@ -54,8 +54,8 @@ class Directory extends React.Component {
         {
           // before it was .map(section) then section.title, section.imageurl,
           // can destructure to map({ title, imageurl })
-          this.state.sections.map(({ title, imageUrl, id, size }) => (
-            <MenuItem key={id} title={title} imageUrl={imageUrl} size={size}/>
+          this.state.sections.map(({ id, ...otherSectionProps }) => (
+            <MenuItem key={id} {...otherSectionProps}/>
           ))
         }
       </div>
